@@ -9,7 +9,7 @@ class Customer(name: String){//This is primary constructor
     //primary constructor with parameters
 
     //e.g. property
-    var name: String = "Anonymous"
+    var name: String //= "Anonymous"
 
 
     init {
@@ -17,6 +17,7 @@ class Customer(name: String){//This is primary constructor
         //this block is immediately executed after creation of instance of this class
 
         this.name = name
+        println("init block : $name")
     }
 }
 
@@ -46,6 +47,12 @@ class CollegeStudent constructor(var name: String) { // keyword constructor is o
 
         //body of secondary constructor is called after init block
     }
+}
+
+class Tt
+    constructor(var name: String, var id: Int) {
+
+
 }
 
 fun main(args: Array<String>) {

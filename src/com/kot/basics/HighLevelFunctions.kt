@@ -54,6 +54,10 @@ fun main(args: Array<String>) {
 
     obj.add(8, 9) {sum-> println("Sum of numbers is: $sum")} // way 3 of using lambdas
 
+
+    f { println("This is inline function, used with crossline modifier") }
+
+
 }
 
 class MathOp {
@@ -72,4 +76,20 @@ class MathOp {
 
 interface OpExecutor {
     fun execute(sum: Int)
+}
+
+/*
+    Crossline modifier:
+    Note that some inline functions may call the lambdas passed to them as parameters not directly from the function body,
+     but from another execution context, such as a local object or a nested function. In such cases,
+     non-local control flow is also not allowed in the lambdas.
+    To indicate that, the lambda parameter needs to be marked with the crossinline modifier:
+*/
+//Note: break and continue are not yet available in inlined lambdas
+inline fun f(crossinline body: ()->Unit) {
+    val f = object : Runnable {
+        override fun run() = body()
+    }
+
+    f.run()
 }

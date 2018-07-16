@@ -37,6 +37,7 @@ fun main(args: Array<String>): Unit {
 
     val peopleList = listOf<PersonData>(PersonData("A", 23), PersonData("B", 34), PersonData("Aa", 43), PersonData("K", 34))
     println("People list: $peopleList")
+    //peopleList.flatMap { personData -> personData.name + " x" }
 
     val selectedPeople = peopleList.map { it.name }
     println("Selected people: $selectedPeople")

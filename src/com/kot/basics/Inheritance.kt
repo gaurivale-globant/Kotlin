@@ -20,7 +20,7 @@ open class Animal {
 
 class Dog: Animal(color = "Brown")/*inheritance in Kotlin*/ {
 
-    override var color: String = "Brown" // property overloading
+    override var color: String = "Brown" // property overriding
 
     var breed: String = ""
 

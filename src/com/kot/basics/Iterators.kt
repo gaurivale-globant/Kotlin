@@ -47,4 +47,13 @@ fun main(args : Array<String>) : Unit {
     }
 
     //return
+
+    var ints: List<Int> = listOf(1, 2, 3, 4, 5, 6, 7, 8)
+    ints.forEach {
+        if (it % 2 == 0) {
+            println("even")
+        } else {
+            println("odd")
+        }
+    }
 }

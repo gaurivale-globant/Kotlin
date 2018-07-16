@@ -26,3 +26,12 @@ fun max(a: Int, b: Int) : Int
             println("$b is greater")
             b
         }
+
+/*
+"return" statement can be used in normal named function and in anonymous function to exit function.
+It cannot be used in lambda expression. Because lambda cannot make enclosing function return.
+To exit from lambda label is used.
+For inline function return is allowed
+
+If lambda returns enclosing function then it is called as non-local return
+ */

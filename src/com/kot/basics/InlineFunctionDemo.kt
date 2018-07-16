@@ -16,4 +16,37 @@ Use "inline" keyword
 Everything in inline function will be inlined at call site i.e. at function call
 Avoid inlining large functions
 
+By default lambda functions passed to inline function become inline
+To avoid this use noinline modifier
  */
+
+fun main(args: Array<String>) {
+    testInline(){a: Int, b: Int->
+        println("In lambda function")
+         (a + b)
+    }
+
+    doSomeOperations({println("This is inline lambda")},
+            {
+                println("This is noinline lambda")
+        for (i in 1..10) {
+            println("i: $i")
+        }
+    })
+
+}
+
+inline fun testInline(action: (Int, Int)->Int) : Unit {
+    println("this is inline function")
+    var n: Int = action(6, 7)
+    println("n: $n")
+}
+
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+
+inline fun doSomeOperations(inlineFun: ()->Unit, noinline noInlineFun: ()->Unit): Unit {
+    inlineFun()
+    noInlineFun()
+}
